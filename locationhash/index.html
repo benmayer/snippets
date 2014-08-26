@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>
+      Hash Test
+    </title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <style type="text/css">
+      html, body{
+        margin:0;
+        padding:0;
+        width:100%;
+        height:100%;
+      }
+      header {
+        position:fixed;
+        background:white;
+        left:10%;
+        right:10%;
+        top: 20px;
+      }
+      header ul{
+        margin:0;
+        padding:0;
+      }
+      header li{
+        display:inline-block;
+      }
+      header a{
+        display:block;
+        padding:.5em;
+      }
+      h1{
+        display:table-cell;
+        text-align: center;
+        vertical-align: middle;
+      }
+      section{
+        display: table;
+        width:100%;
+        height:100%;
+      }
+      #s1{
+        background:#efefef;
+      }
+      #s2{
+        background:#ccc;
+      }
+      #s3{
+        background:#aaa;
+      }
+      #s4{
+        background:#222;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <ul>
+        <li><a href="#1">1</a></li>
+        <li><a href="#2">2</a></li>
+        <li><a href="#3">3</a></li>
+        <li><a href="#4">4</a></li>
+      </ul>
+    </header>
+    <section id="s1"><h1>Section 1</h1></section>
+    <section id="s2"><h1>Section 2</h1></section>
+    <section id="s3"><h1>Section 3</h1></section>
+    <section id="s4"><h1>Section 4</h1></section>
+    <script>
+    $(document).ready(function(){
+      window.location.hash = '!1';
+      
+      $('a').on('click', function(e){
+        e.preventDefault();
+        var x = $(this).attr('href').replace('#', '');
+        // console.log(x);
+        $('html, body').animate({ 
+          scrollTop:  $("#s"+x).offset().top
+        });
+      });
+    });
+    $(window).bind('scroll',function(e){
+      $('section').each(function(){
+         if (
+         $(this).offset().top < window.pageYOffset + 10//begins before top
+         && $(this).offset().top + $(this).height() > window.pageYOffset + 10//but ends in visible area //+ 10 allows you to change hash before it hits the top border
+         ) {
+         var x = $(this).attr('id').replace('s', '');
+         console.log(x);
+          window.location.hash = '!'+ x;
+        }
+      });
+    });
+    </script>
+  </body> 
+  </html>
