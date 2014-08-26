@@ -58,10 +58,10 @@
   <body>
     <header>
       <ul>
-        <li><a href="#1">1</a></li>
-        <li><a href="#2">2</a></li>
-        <li><a href="#3">3</a></li>
-        <li><a href="#4">4</a></li>
+        <li><a href="#s1">1</a></li>
+        <li><a href="#s2">2</a></li>
+        <li><a href="#s3">3</a></li>
+        <li><a href="#s4">4</a></li>
       </ul>
     </header>
     <section id="s1"><h1>Section 1</h1></section>
@@ -70,11 +70,11 @@
     <section id="s4"><h1>Section 4</h1></section>
     <script>
     $(document).ready(function(){
-      window.location.hash = '!1';
+      window.location.hash = '/1';
       
       $('a').on('click', function(e){
         e.preventDefault();
-        var x = $(this).attr('href').replace('#', '');
+        var x = $(this).attr('href').replace('#s', '');
         // console.log(x);
         $('html, body').animate({ 
           scrollTop:  $("#s"+x).offset().top
@@ -89,7 +89,7 @@
          ) {
          var x = $(this).attr('id').replace('s', '');
          console.log(x);
-          window.location.hash = '!'+ x;
+          window.location.hash = '/'+ x;
         }
       });
     });
