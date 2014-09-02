@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <title>Countdown</title>
+    <script>document.documentElement.className = "js";</script>
+    <style type="text/css">
+      html{
+        display:table;
+        height:100%;
+        width:100%;
+      }
+      body{
+        display:table-cell;
+        min-height:100%;
+        text-align:center;
+        vertical-align:middle;
+        color:#555;
+        font: 100 100%/1.4 'Helvetica Neue', sans-serif;
+      }
+
+      body > a{display:none;}
+
+      h1{
+        font-size: 3em;
+        text-transform:uppercase;
+        font-weight:100;
+      }
+      h1 a {
+        color:inherit;
+        text-decoration:none;
+        border-bottom: 1px solid;
+        padding: .25em 0;
+      }
+      h2{
+        font-size: 1em;
+        text-transform: uppercase;
+      }
+
+      h3{
+        font-size: 2em;
+        text-transform: uppercase;
+        font-weight: 100;
+      }
+      .no-js #date{display:none;}
+    </style>
+</head>
+<body>
+<h1><a href="#">Countdown</a></h1>
+<h2>Coming Soon</h2>
+<noscript>
+  Please turn on your Javascript for a live countdown
+</noscript>
+<h3 id="date">
+    <span id="day">00</span> : 
+    <span id="hour">00</span> : 
+    <span id="minute">00</span> : 
+    <span id="second">00</span>
+</h3>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="countdown.js"></script>
+</body>
+</html>
