@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Twitter API Fetcher" />
+    <meta name="description" content="Allows you to fetch your twitter posts without using the 1.1 API. Pure JavaScript!" />
+    <title>Twitter Posts</title>
+  </head>
+  <body>
+    <h2>latest tweet</h2>
+    <div id="feed"></div>
+    <script type="text/javascript" src="js/twitterfetcher.min.js"></script>
+    <script type="text/javascript">
+    var options = {
+      "id": '506482764653133824',
+      "domId": 'feed',
+      "enableLinks": true,
+      // "customCallback": handleTweets,
+    };
+    function handleTweets(tweets){
+        var x = tweets.length;
+        var n = 0;
+        var element = document.getElementById('feed');
+        var html = '<ol>';
+        while(n < x) {
+          html += '<li>' + tweets[n] + '</li>';
+          n++;
+        }
+        html += '</ol>';
+        element.innerHTML = html;
+    }
+    twitterFetcher.fetch(options);
+    </script>
+  </body>
+</html>
